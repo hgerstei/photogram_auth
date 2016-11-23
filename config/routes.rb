@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  # Needed to move to top because of conflict (users/sign_in)
+  devise_for :users
   # In config/routes.rb
   # root "photos#index"
-devise_for :users
 
   get "/", :controller => "photos", :action => "index"
+
+  # Add link that goes to current user's show page - is a new route necessary
+  get "/my_wall", :controller => "photos", :action => "show"
+  get "/my_likes", :controller => "mylikes", :action => "show"
 
   # RCAV for devise
   # CREATE
