@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   # In config/routes.rb
   # root "photos#index"
 
-  get "/", :controller => "photos", :action => "index"
-
   # Add link that goes to current user's show page - is a new route necessary
   get "/my_wall", :controller => "photos", :action => "show"
   get "/my_likes", :controller => "mylikes", :action => "show"
@@ -79,7 +77,7 @@ Rails.application.routes.draw do
 
 
   # Per Command Prompt setup instructions
-  root to: "home#index"
+  root to: "photos#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
