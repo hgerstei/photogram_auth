@@ -1,15 +1,15 @@
-<h2>Log in</h2>
+<div class="panel panel-default">
+  <div class-"col-md-8 col-md-offset-2">
+<div class="panel-heading">
+  <h2 class="panel-title">Log in</h2>
+</div>
 
+<!-- <form class="form-horizontal" role="form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"> -->
+<div class="panel-body">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <!-- Added field for username -->
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <div class="field">
@@ -28,5 +28,9 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+<!-- </form> -->
+</div>
+</div>

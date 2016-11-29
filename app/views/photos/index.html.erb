@@ -13,7 +13,7 @@
   <% @photos.each do |photo| %>
   <div class="panel panel-default">
     <div class="panel-heading"><a href="/users/<%= photo.user_id %>"><%= User.find(photo.user_id).username %></a>
-      <%= "about " + time_ago_in_words(photo.updated_at) + " ago" %></div>
+      <%= time_ago_in_words(photo.updated_at) + " ago" %></div>
       <div class="panel-body">
         <!-- Panel content -->
         <td><a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" class="img-responsive" alt="Responsive image"></a></td>
@@ -59,8 +59,8 @@
   <div class="media-body">
     <h6 class="media-heading">
   <ul><a href="/users/:id"><%= photo.user_id %></a>
-    <small><%= "about " + time_ago_in_words(photo.updated_at) + " ago" %></small>
-    <h6><%= photo.comments.pluck(:body).to_sentence %></h6>
+    <small><%= time_ago_in_words(photo.updated_at) + " ago" %></small>
+    <h6><%= photo.comments.pluck(:body) %></h6>
   </ul>
 </div>
 </div>
