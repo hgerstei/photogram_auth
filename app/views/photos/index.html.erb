@@ -55,6 +55,15 @@
           <% end %>
         </form>
 
+<div class="media">
+  <div class="media-body">
+    <h6 class="media-heading">
+  <ul><a href="/users/:id"><%= photo.user_id %></a>
+    <small><%= "about " + time_ago_in_words(photo.updated_at) + " ago" %></small>
+    <h6><%= photo.comments.pluck(:body).to_sentence %></h6>
+  </ul>
+</div>
+</div>
 
         <!-- Form for comments -->
         <form action="/create_comment" method="post">
@@ -63,11 +72,11 @@
           <!-- Label and input for user_id -->
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
           <!-- Label and input for comment -->
-          <input type="text" name="comment" placeholder="Add a Comment..."><%= "about " + time_ago_in_words(photo.updated_at) + " ago" %>
+          <input type="text" name="comment" placeholder="Add a Comment...">
 </div>
 </div>
-          <% end %>
 
+<% end %>
 
 
     </div>
