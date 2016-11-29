@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # Per Command Prompt setup instructions
   root to: "photos#index"
-  
+
   # Add link that goes to current user's show page - is a new route necessary
   get "/my_wall", :controller => "photos", :action => "show"
   get "/my_likes", :controller => "mylikes", :action => "show"
@@ -21,11 +21,11 @@ Rails.application.routes.draw do
   get "/users/:id", :controller => "users", :action => "show"
 
   # UPDATE
-  # get "/users/:id/edit", :controller => "users", :action => "edit"
-  # post "/update_user/:id", :controller => "users", :action => "update"
+  get "/users/:id/edit", :controller => "users", :action => "edit"
+  post "/update_user/:id", :controller => "users", :action => "update"
 
   # DELETE
-  # get "/delete_user/:id", :controller => "users", :action => "destroy"
+  get "/delete_user/:id", :controller => "users", :action => "destroy"
 
   # Routes for the Comment resource:
   # CREATE

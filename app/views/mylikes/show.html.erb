@@ -1,14 +1,36 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="panel panel-default">
+  <h3 class="panel-title"><a href="/users/<%= @user.id %>"><%= @user.username %></a><small>
+      Time Updated</small></h3>
+  <div class="panel-body">
+    <!-- Panel content -->
 
-      <% @likes.where(:user_id => current_user.id).each do |mylike| %>
-      <tr>
-        <td><%= Photo.find(mylike.photo_id).image %></td>
-        <td><%= Photo.find(mylike.photo_id).caption %></td>
-        <td><%= Photo.find(mylike.photo_id).likes %></td>
-        <td><%= Photo.find(mylike.photo_id).comments %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+    <% @likes.where(:user_id => current_user.id).each do |mylike| %>
+    <% if mylike.user_id == current_user.id %>
+    <tr>
+      <td><img src="<%= Photo.find(mylike.photo_id).image %>" class="img-responsive" alt="Responsive image"></td>
+      <!-- <td><%= Photo.find(mylike.photo_id).caption %></td> -->
+      <a href="/delete_like/:id" class="btn btn-link">
+        <i class="fa fa-heart">
+        </i>
+      </a>
+      <td><%= Photo.find(mylike.photo_id).likes %></td>
+    </p>
+    <ul class="media-list">
+  <li class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="..." alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      Comments go here
+    </div>
+  </li>
+</ul>
+    <td><%= Photo.find(mylike.photo_id).comments %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+</div>
 </div>

@@ -41,21 +41,21 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="/users">All Users</a></li>
-          <li><a href="/comments">Comments</a></li>
-          <li><a href="/likes">Likes</a></li>
+          <!-- <li><a href="/comments">Comments</a></li> -->
+          <!-- <li><a href="/likes">Likes</a></li> -->
           <li><a href="/photos">All Posts</a></li>
-          <% if current_user != nil %>
-          <li><a href="/users/<%= current_user.id %>">My Wall</a></li>
-          <% end %>
           <% if current_user != nil %>
           <li><a href="/my_likes">My Likes</a></li>
           <% end %>
-          <li><a href="/rails/info">Sitemap</a></li>
+          <% if current_user != nil %>
+          <li><a href="/users/<%= current_user.id %>">My Wall</a></li>
+          <% end %>
+          <!-- <li><a href="/rails/info">Sitemap</a></li> -->
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user != nil %>
-          <li><a href="/users/edit"><%= current_user.username.camelize %></a></li>
+          <li><a href="/users/edit"><%= current_user.username %></a></li>
           <% else %>
           <li><a href="/">Sign In</a></li>
           <% end %>
