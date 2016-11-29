@@ -22,12 +22,16 @@
         <img class="media-object" src="..." alt="...">
       </a>
     </div>
+    <div class="media-heading">
+      <ul><a href="/users/<%= current_user.id %>"><%= @user %></a>
+        <small><%= time_ago_in_words(Photo.find(mylike.photo_id).updated_at) + " ago" %></small>
+    </div>
     <div class="media-body">
-      Comments go here
+      <%= Photo.find(mylike.photo_id).comments.pluck(:body) %>
     </div>
   </li>
 </ul>
-    <td><%= Photo.find(mylike.photo_id).comments %></td>
+    <!-- <td><%= Photo.find(mylike.photo_id).comments.pluck(:body) %></td> -->
     </tr>
     <% else %>
     <% end %>
