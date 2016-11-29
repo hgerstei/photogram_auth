@@ -40,10 +40,6 @@ Rails.application.routes.draw do
   get "/comments/:id/edit", :controller => "comments", :action => "edit"
   post "/update_comment/:id", :controller => "comments", :action => "update"
 
-  # DELETE
-  get "/delete_comment/:id", :controller => "comments", :action => "destroy"
-  #------------------------------
-
   # Routes for the Like resource:
   # CREATE
   get "/likes/new", :controller => "likes", :action => "new"
@@ -59,6 +55,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_like/:id", :controller => "likes", :action => "destroy"
+  #------------------------------
+  
+  # DELETE
+  get "/delete_comment/:id", :controller => "comments", :action => "destroy"
   #------------------------------
 
   # Routes for the Photo resource:
